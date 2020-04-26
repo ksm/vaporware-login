@@ -1,4 +1,5 @@
 // @flow
+import 'react-native-gesture-handler';
 import React from 'react';
 import {
   SafeAreaView,
@@ -8,19 +9,17 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {LoginScreen} from './src/LoginScreen';
+
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Text>Hello, World!</Text>
-        </ScrollView>
-      </SafeAreaView>
-    </>
+    <NavigationContainer>
+      <LoginScreen></LoginScreen>
+    </NavigationContainer>
   );
 };
 
