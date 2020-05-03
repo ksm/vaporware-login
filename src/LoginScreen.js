@@ -1,24 +1,33 @@
 // @flow
-import React from 'react';
-import {SafeAreaView, ScrollView, Text, StyleSheet, Button} from 'react-native';
+import React, {useContext} from 'react';
+import {
+  SafeAreaView,
+  ScrollView,
+  Text,
+  StyleSheet,
+  Button,
+  TextInput,
+} from 'react-native';
+import {AuthContext} from './AuthContext';
 
-export const LoginScreen = ({navigation}) => (
-  // <StatusBar barStyle="dark-content" /> how does this component work?
-  <SafeAreaView>
-    <ScrollView
-      contentInsetAdjustmentBehavior="automatic"
-      style={styles.scrollView}>
-      <Text>Hello, World from the login screen!</Text>
-      <Text>Hello, World from the login screen!</Text>
-      <Button
-        title="Log me in"
-        onPress={() => {
-          navigation.navigate('Home');
-        }}></Button>
-    </ScrollView>
-  </SafeAreaView>
-);
+export const LoginScreen = () => {
+  const authFunc = useContext(AuthContext);
+
+  return (
+    // <StatusBar barStyle="dark-content" /> how does this component work?
+    <SafeAreaView style={styles.container}>
+      <ScrollView contentInsetAdjustmentBehavior="automatic">
+        <Text>Please provide a valid username and password.</Text>
+        <TextInput placeholder="Username" />
+        <TextInput placeholder="Password" secureTextEntry />
+        <Button title="Log me in" onPress={authFunc}></Button>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
-  scrollView: {},
+  container: {
+    flex: 1,
+  },
 });

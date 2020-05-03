@@ -4,7 +4,7 @@ import {SafeAreaView, ScrollView, Text, StyleSheet} from 'react-native';
 
 export const HomeScreen = () => (
   // <StatusBar barStyle="dark-content" /> how does this component work?
-  <SafeAreaView>
+  <SafeAreaView style={styles.container}>
     <ScrollView
       contentInsetAdjustmentBehavior="automatic"
       style={styles.scrollView}>
@@ -14,5 +14,7 @@ export const HomeScreen = () => (
 );
 
 const styles = StyleSheet.create({
-  scrollView: {},
+  container: {
+    flex: 1,
+  },
 });
