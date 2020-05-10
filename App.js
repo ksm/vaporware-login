@@ -32,9 +32,6 @@ const LoggedOutStack = () => {
         name="Login"
         component={LoginScreen}
         options={{title: 'Log in'}}
-        onLogIn={() => {
-          console.warn('BLAH');
-        }}
       />
     </LoggedOut.Navigator>
   );
